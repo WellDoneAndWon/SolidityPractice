@@ -5,14 +5,14 @@ describe("EngAuction", async function(){
     let ownerSeller
     let buyer1
     let buyer2
-    const itenName = "huawei"
-    const minPrice = 1000000000000
-    const enoughPrice = 500000000000000
+    const itemName = "pc"
+    const minPrice = 10000000000000000
+    const enoughPrice = 5000000000000000000
 
     beforeEach("EngAuction", async function(){
         [ownerSeller, buyer1, buyer2] = await ethers.getSigners()
         const EngAuction = await ethers.getContractFactory("EngAuction")
-        const auction = await EngAuction.deploy(itenName, minPrice, enoughPrice)
+        const auction: EngAuction = await EngAuction.deploy(itemName, minPrice, enoughPrice)
         await auction.deployed()
     });
 
